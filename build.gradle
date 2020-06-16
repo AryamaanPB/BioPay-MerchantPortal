@@ -1,0 +1,25 @@
+apply plugin: 'java'
+apply plugin: 'jacoco'
+apply plugin: 'application'
+
+mainClassName = 'Firebase.BP.Main'
+
+repositories {
+    jcenter()
+    maven { url "http://dl.bintray.com/ipgeolocation/ipgeolocation" }
+}
+jar {
+    manifest {
+        attributes(
+                'Main-Class': 'Firebase.BP.Main'
+        )
+    }
+}
+dependencies {
+    testImplementation     'junit:junit:4.13'
+    implementation 'com.google.firebase:firebase-admin:6.12.2'
+    implementation 'com.google.gms:google-services:3.0.0'
+    compile 'com.maxmind.geoip2:geoip2:2.13.1'
+    compile 'io.ipgeolocation:ipgeolocation:1.0.8'
+    
+}
